@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// Complejidad: O(n)
 string readFile(const string& fileName) {
 	ifstream file(fileName);
 	string transmission, line;
@@ -21,7 +22,7 @@ string readFile(const string& fileName) {
 	file.close();
 	return transmission;
 }
-
+// Complejidad: O(m)
 void readCodes(const string& fileName, vector<string>& mcode) {
 	ifstream file(fileName);
 	string codes, line;
@@ -32,6 +33,7 @@ void readCodes(const string& fileName, vector<string>& mcode) {
 	file.close();
 }
 
+// Complejidad: O(m)
 vector<int> lps(string str) {
 	int m = str.size();
 	vector<int> lpsv(m, 0);
@@ -50,7 +52,7 @@ vector<int> lps(string str) {
 
 	return lpsv;
 }
-
+// Complejidad: O(n + m)
 vector<int> kmp(string str, string pattern) {
 	vector<int> lpsv = lps(pattern);
 	vector<int> posMatch;
@@ -72,10 +74,9 @@ vector<int> kmp(string str, string pattern) {
 			}
 		}
 	}
-
 	return posMatch;
 }
-
+// Complejidad: O(n * m)
 int countSubsequence(const string& str, const string& subsequence) {
     int count = 0;
     size_t pos = str.find(subsequence);
@@ -85,7 +86,7 @@ int countSubsequence(const string& str, const string& subsequence) {
     }
     return count;
 }
-
+// Complejidad: O(n * m)
 void searchCode(const string& transmission, const string& code, ofstream& outputFile, int transmissionNumber) {
     vector<int> positions = kmp(transmission, code);
     int count = positions.size();
@@ -114,13 +115,13 @@ void searchCode(const string& transmission, const string& code, ofstream& output
 
         if (!mostCommonSubsequence.empty()) {
             outputFile << "La subsecuencia más encontrada es: " << mostCommonSubsequence
-                       << " con " << mostCommonCount << " veces en el archivo Transmission" << transmissionNumber << ".txt\n";
+                       << " con " << mostCommonCount << " veces en el archivo Transmissión" << transmissionNumber << ".txt\n";
         }
     }
 
     outputFile << "--------------\n";
 }
-
+// Complejidad: O(n)
 string manacher(const string& str) {
     string T = "$";
     for (char s : str) {
@@ -171,18 +172,18 @@ string manacher(const string& str) {
     }
 
     int inicio = (maxMid - maxLong) / 2;
-    string salida = str.substr(inicio, maxLong); // Usar substr para extraer el palíndromo más largo
+    string salida = str.substr(inicio, maxLong);
     return salida;
 }
 
+// Complejidad: O(n^2)
 void findLongestPalindrome(const string& transmision, ofstream& outputFile, int numTrans) {
     string longestPalindrome = manacher(transmision);
-    // Aquí puedes encontrar la posición del palíndromo más largo en la cadena de transmisión original
     int position = transmision.find(longestPalindrome);
     outputFile << "Transmission" << numTrans << ".txt ==> Posición: " << position << "\n" << longestPalindrome << "\n----\n";
 }
 
-
+// Complejidad: O(n*m)
 string findLongestSubstring(const string& s1, const string& s2) {
     int n = s1.length();
     int m = s2.length();
@@ -227,12 +228,10 @@ int main() {
     for (const string& code : mcode) {
         outputFile << "Código: " << code << "\n";
         
-        // Contar ocurrencias en cada archivo de transmisión y obtener posiciones
         vector<int> positions1 = kmp(trans1, code);
         vector<int> positions2 = kmp(trans2, code);
         vector<int> positions3 = kmp(trans3, code);
         
-        // Mostrar las ocurrencias en cada archivo de transmisión
         outputFile << "Transmission1.txt ==> " << positions1.size() << " veces\n";
         if (!positions1.empty()) {
             outputFile << "Posiciones: ";
@@ -281,7 +280,6 @@ int main() {
     findLongestPalindrome(trans2, outputFile, 2);
     findLongestPalindrome(trans3, outputFile, 3);
     
-    // Encontrar los substrings más largos entre combinaciones de archivos de transmisión
     string longestSubstring1_2 = findLongestSubstring(trans1, trans2);
     string longestSubstring1_3 = findLongestSubstring(trans1, trans3);
     string longestSubstring2_3 = findLongestSubstring(trans2, trans3);
