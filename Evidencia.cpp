@@ -1,8 +1,7 @@
-// 1- Códigos están o no en transmisiones
-// 2- Cantidad de incidencias de cada código en transmisiones
-// 3- Posiciones donde se encontraron
-// 4- Subsecuencia del código con un caracter menos del original que fue mas 
-//		encontrado dentro de los tres archivos de transmisión
+// Ana Carolina Ramírez
+// Roberto Andonie Hernández A01411863
+
+// Evidencia 1
 
 #include <iostream>
 #include <fstream>
