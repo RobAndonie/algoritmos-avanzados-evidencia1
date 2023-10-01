@@ -1,150 +1,81 @@
 Código: AA
-Código: AA
 Transmission1.txt ==> 3 veces
-427, 615, 857
-La subsecuencia más encontrada es: AA con 3 veces en el archivo Transmission1.txt
---------------
-Código: AA
+Posiciones: 427, 615, 857
 Transmission2.txt ==> 2 veces
-574, 667
-La subsecuencia más encontrada es: AA con 2 veces en el archivo Transmission2.txt
---------------
-Código: AA
+Posiciones: 574, 667
 Transmission3.txt ==> 0 veces
+
 --------------
---------------
-Código: A13
 Código: A13
 Transmission1.txt ==> 3 veces
-23, 153, 822
-La subsecuencia más encontrada es: A13 con 3 veces en el archivo Transmission1.txt
---------------
-Código: A13
+Posiciones: 23, 153, 822
 Transmission2.txt ==> 1 veces
-253
-La subsecuencia más encontrada es: A13 con 1 veces en el archivo Transmission2.txt
---------------
-Código: A13
+Posiciones: 253
 Transmission3.txt ==> 1 veces
-344
-La subsecuencia más encontrada es: A13 con 1 veces en el archivo Transmission3.txt
+Posiciones: 344
+
 --------------
---------------
-Código: 73A2
 Código: 73A2
 Transmission1.txt ==> 0 veces
---------------
-Código: 73A2
 Transmission2.txt ==> 0 veces
---------------
-Código: 73A2
 Transmission3.txt ==> 0 veces
+
 --------------
---------------
-Código: 1C3
 Código: 1C3
 Transmission1.txt ==> 0 veces
---------------
-Código: 1C3
 Transmission2.txt ==> 0 veces
---------------
-Código: 1C3
 Transmission3.txt ==> 1 veces
-527
-La subsecuencia más encontrada es: 1C3 con 1 veces en el archivo Transmission3.txt
+Posiciones: 527
+
 --------------
---------------
-Código: CDEC
 Código: CDEC
 Transmission1.txt ==> 4 veces
-0, 463, 640, 705
-La subsecuencia más encontrada es: CDEC con 4 veces en el archivo Transmission1.txt
---------------
-Código: CDEC
+Posiciones: 0, 463, 640, 705
 Transmission2.txt ==> 0 veces
---------------
-Código: CDEC
 Transmission3.txt ==> 4 veces
-17, 269, 282, 466
-La subsecuencia más encontrada es: CDEC con 4 veces en el archivo Transmission3.txt
+Posiciones: 17, 269, 282, 466
+
 --------------
---------------
-Código: FFF
 Código: FFF
 Transmission1.txt ==> 1 veces
-764
-La subsecuencia más encontrada es: FFF con 1 veces en el archivo Transmission1.txt
---------------
-Código: FFF
+Posiciones: 764
 Transmission2.txt ==> 0 veces
---------------
-Código: FFF
 Transmission3.txt ==> 5 veces
-352, 353, 354, 355, 356
-La subsecuencia más encontrada es: FFF con 5 veces en el archivo Transmission3.txt
+Posiciones: 352, 353, 354, 355, 356
+
 --------------
---------------
-Código: 139
 Código: 139
 Transmission1.txt ==> 1 veces
-24
-La subsecuencia más encontrada es: 139 con 1 veces en el archivo Transmission1.txt
---------------
-Código: 139
+Posiciones: 24
 Transmission2.txt ==> 4 veces
-254, 680, 683, 686
-La subsecuencia más encontrada es: 139 con 4 veces en el archivo Transmission2.txt
---------------
-Código: 139
+Posiciones: 254, 680, 683, 686
 Transmission3.txt ==> 2 veces
-441, 537
-La subsecuencia más encontrada es: 139 con 2 veces en el archivo Transmission3.txt
+Posiciones: 441, 537
+
 --------------
---------------
-Código: CF40
 Código: CF40
 Transmission1.txt ==> 2 veces
-29, 708
-La subsecuencia más encontrada es: CF40 con 2 veces en el archivo Transmission1.txt
---------------
-Código: CF40
+Posiciones: 29, 708
 Transmission2.txt ==> 1 veces
-994
-La subsecuencia más encontrada es: CF40 con 1 veces en el archivo Transmission2.txt
---------------
-Código: CF40
+Posiciones: 994
 Transmission3.txt ==> 0 veces
+
 --------------
---------------
-Código: 77
 Código: 77
 Transmission1.txt ==> 4 veces
-56, 473, 483, 767
-La subsecuencia más encontrada es: 77 con 4 veces en el archivo Transmission1.txt
---------------
-Código: 77
+Posiciones: 56, 473, 483, 767
 Transmission2.txt ==> 6 veces
-22, 414, 415, 646, 745, 974
-La subsecuencia más encontrada es: 77 con 6 veces en el archivo Transmission2.txt
---------------
-Código: 77
+Posiciones: 22, 414, 415, 646, 745, 974
 Transmission3.txt ==> 6 veces
-66, 427, 637, 638, 639, 640
-La subsecuencia más encontrada es: 77 con 6 veces en el archivo Transmission3.txt
+Posiciones: 66, 427, 637, 638, 639, 640
+
 --------------
---------------
-Código: 567
 Código: 567
 Transmission1.txt ==> 0 veces
---------------
-Código: 567
 Transmission2.txt ==> 1 veces
-272
-La subsecuencia más encontrada es: 567 con 1 veces en el archivo Transmission2.txt
---------------
-Código: 567
+Posiciones: 272
 Transmission3.txt ==> 0 veces
---------------
+
 ==============
 Palíndromo más grande:
 Transmission1.txt ==> Posición: 75

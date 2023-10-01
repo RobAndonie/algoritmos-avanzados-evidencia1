@@ -1,7 +1,7 @@
-// Ana Carolina Ramírez
+// Ana Carolina Ramírez González A00833324
 // Roberto Andonie Hernández A01411863
 
-// Evidencia 1
+// TC2038 - Actividad Integradora 1
 
 #include <iostream>
 #include <fstream>
@@ -226,9 +226,51 @@ int main() {
     int i = 0;
     for (const string& code : mcode) {
         outputFile << "Código: " << code << "\n";
-        searchCode(trans1, code, outputFile, 1);
-        searchCode(trans2, code, outputFile, 2);
-        searchCode(trans3, code, outputFile, 3);
+        
+        // Contar ocurrencias en cada archivo de transmisión y obtener posiciones
+        vector<int> positions1 = kmp(trans1, code);
+        vector<int> positions2 = kmp(trans2, code);
+        vector<int> positions3 = kmp(trans3, code);
+        
+        // Mostrar las ocurrencias en cada archivo de transmisión
+        outputFile << "Transmission1.txt ==> " << positions1.size() << " veces\n";
+        if (!positions1.empty()) {
+            outputFile << "Posiciones: ";
+            for (int i = 0; i < positions1.size(); ++i) {
+                outputFile << positions1[i];
+                if (i < positions1.size() - 1) {
+                    outputFile << ", ";
+                }
+            }
+            outputFile << "\n";
+        }
+        
+        outputFile << "Transmission2.txt ==> " << positions2.size() << " veces\n";
+        if (!positions2.empty()) {
+            outputFile << "Posiciones: ";
+            for (int i = 0; i < positions2.size(); ++i) {
+                outputFile << positions2[i];
+                if (i < positions2.size() - 1) {
+                    outputFile << ", ";
+                }
+            }
+            outputFile << "\n";
+        }
+        
+        outputFile << "Transmission3.txt ==> " << positions3.size() << " veces\n";
+        if (!positions3.empty()) {
+            outputFile << "Posiciones: ";
+            for (int i = 0; i < positions3.size(); ++i) {
+                outputFile << positions3[i];
+                if (i < positions3.size() - 1) {
+                    outputFile << ", ";
+                }
+            }
+            outputFile << "\n";
+        }
+        
+        outputFile << "\n";
+        
         if (i++ < mcode.size() - 1)
             outputFile << "--------------" << "\n";
     }
