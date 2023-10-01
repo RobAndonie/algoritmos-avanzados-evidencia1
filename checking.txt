@@ -1,0 +1,163 @@
+Código: AA
+Código: AA
+Transmission1.txt ==> 3 veces
+427, 615, 857
+La subsecuencia más encontrada es: AA con 3 veces en el archivo Transmission1.txt
+--------------
+Código: AA
+Transmission2.txt ==> 2 veces
+574, 667
+La subsecuencia más encontrada es: AA con 2 veces en el archivo Transmission2.txt
+--------------
+Código: AA
+Transmission3.txt ==> 0 veces
+--------------
+--------------
+Código: A13
+Código: A13
+Transmission1.txt ==> 3 veces
+23, 153, 822
+La subsecuencia más encontrada es: A13 con 3 veces en el archivo Transmission1.txt
+--------------
+Código: A13
+Transmission2.txt ==> 1 veces
+253
+La subsecuencia más encontrada es: A13 con 1 veces en el archivo Transmission2.txt
+--------------
+Código: A13
+Transmission3.txt ==> 1 veces
+344
+La subsecuencia más encontrada es: A13 con 1 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: 73A2
+Código: 73A2
+Transmission1.txt ==> 0 veces
+--------------
+Código: 73A2
+Transmission2.txt ==> 0 veces
+--------------
+Código: 73A2
+Transmission3.txt ==> 0 veces
+--------------
+--------------
+Código: 1C3
+Código: 1C3
+Transmission1.txt ==> 0 veces
+--------------
+Código: 1C3
+Transmission2.txt ==> 0 veces
+--------------
+Código: 1C3
+Transmission3.txt ==> 1 veces
+527
+La subsecuencia más encontrada es: 1C3 con 1 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: CDEC
+Código: CDEC
+Transmission1.txt ==> 4 veces
+0, 463, 640, 705
+La subsecuencia más encontrada es: CDEC con 4 veces en el archivo Transmission1.txt
+--------------
+Código: CDEC
+Transmission2.txt ==> 0 veces
+--------------
+Código: CDEC
+Transmission3.txt ==> 4 veces
+17, 269, 282, 466
+La subsecuencia más encontrada es: CDEC con 4 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: FFF
+Código: FFF
+Transmission1.txt ==> 1 veces
+764
+La subsecuencia más encontrada es: FFF con 1 veces en el archivo Transmission1.txt
+--------------
+Código: FFF
+Transmission2.txt ==> 0 veces
+--------------
+Código: FFF
+Transmission3.txt ==> 5 veces
+352, 353, 354, 355, 356
+La subsecuencia más encontrada es: FFF con 5 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: 139
+Código: 139
+Transmission1.txt ==> 1 veces
+24
+La subsecuencia más encontrada es: 139 con 1 veces en el archivo Transmission1.txt
+--------------
+Código: 139
+Transmission2.txt ==> 4 veces
+254, 680, 683, 686
+La subsecuencia más encontrada es: 139 con 4 veces en el archivo Transmission2.txt
+--------------
+Código: 139
+Transmission3.txt ==> 2 veces
+441, 537
+La subsecuencia más encontrada es: 139 con 2 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: CF40
+Código: CF40
+Transmission1.txt ==> 2 veces
+29, 708
+La subsecuencia más encontrada es: CF40 con 2 veces en el archivo Transmission1.txt
+--------------
+Código: CF40
+Transmission2.txt ==> 1 veces
+994
+La subsecuencia más encontrada es: CF40 con 1 veces en el archivo Transmission2.txt
+--------------
+Código: CF40
+Transmission3.txt ==> 0 veces
+--------------
+--------------
+Código: 77
+Código: 77
+Transmission1.txt ==> 4 veces
+56, 473, 483, 767
+La subsecuencia más encontrada es: 77 con 4 veces en el archivo Transmission1.txt
+--------------
+Código: 77
+Transmission2.txt ==> 6 veces
+22, 414, 415, 646, 745, 974
+La subsecuencia más encontrada es: 77 con 6 veces en el archivo Transmission2.txt
+--------------
+Código: 77
+Transmission3.txt ==> 6 veces
+66, 427, 637, 638, 639, 640
+La subsecuencia más encontrada es: 77 con 6 veces en el archivo Transmission3.txt
+--------------
+--------------
+Código: 567
+Código: 567
+Transmission1.txt ==> 0 veces
+--------------
+Código: 567
+Transmission2.txt ==> 1 veces
+272
+La subsecuencia más encontrada es: 567 con 1 veces en el archivo Transmission2.txt
+--------------
+Código: 567
+Transmission3.txt ==> 0 veces
+--------------
+==============
+Palíndromo más grande:
+Transmission1.txt ==> Posición: 75
+A2E2A
+----
+Transmission2.txt ==> Posición: 45
+C8F8C
+----
+Transmission3.txt ==> Posición: 351
+0FFFFFFF0
+----
+==============
+Los Substring más largos son:
+T1-T2 ==> 943A5
+T1-T3 ==> CDEC
+T2-T3 ==> 571139
