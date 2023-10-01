@@ -91,7 +91,66 @@ void searchCode(const string& transmision, const string& mcode, ofstream& output
     outputFile << "\n";
 }
 
+string manacher(const string& str) {
+    string T = "$";
+    for (char s : str) {
+        T += "|";
+        T += s;
+    }
+    T += "|$";
 
+    int n = T.size();
+    vector<int> L(n);
+    L[0] = 0;
+    L[1] = 1;
+
+    int maxLong = 0, maxMid = 0;
+    bool exp;
+    for (int c = 1, li = 0, ri = 2; ri < n; ri++) {
+        li = c - (ri - c);
+        exp = false;
+        if (c - maxLong <= ri && ri >= c + maxLong) {
+            if (L[li] < (c + L[c] - ri)) {
+                L[ri] = L[li];
+            } else if (L[li] == (c + L[c]) - ri && (c + L[c]) == 2 * n) {
+                L[ri] = L[li];
+            } else if (L[li] == (c + L[c]) - ri && ( c + L[c]) < 2 * n) {
+                L[ri] = L[li];
+                exp = true;
+            } else if (L[li] > (c + L[c]) - ri && (c + L[c]) < 2 * n) {
+                L[ri] = (c + L[c]) - ri;
+                exp = true;
+            }
+        } else {
+            L[ri] = 0;
+            exp = true;
+        }
+
+        if (exp) {
+            while ((ri + L[ri] < n) && (ri - L[ri] > 0) && 
+                    (T[ri - L[ri] - 1] == T[ri + L[ri] + 1])) {
+                L[ri]++;
+            }
+        }
+
+        c = ri;
+        if (L[ri] > maxLong) {
+            maxLong = L[ri];
+            maxMid = ri;
+        }
+    }
+
+    int inicio = (maxMid - maxLong) / 2;
+    string salida = str.substr(inicio, maxLong); // Usar substr para extraer el palíndromo más largo
+    return salida;
+}
+
+void findLongestPalindrome(const string& transmision, ofstream& outputFile, int numTrans) {
+    string longestPalindrome = manacher(transmision);
+    // Aquí puedes encontrar la posición del palíndromo más largo en la cadena de transmisión original
+    int position = transmision.find(longestPalindrome);
+    outputFile << "Transmission" << numTrans << ".txt ==> Posición: " << position << "\n" << longestPalindrome << "\n----\n";
+}
 
 int main() {
 	string trans1 = readFile("transmission1.txt");
@@ -103,13 +162,21 @@ int main() {
 
 	ofstream outputFile("cheking.txt");
 
+	int i = 0;
 	for(const string& code : mcode) {
-        outputFile << "Código: " << code << endl;
+        outputFile << "Código: " << code << "\n";
         searchCode(trans1, code, outputFile, 1);
         searchCode(trans2, code, outputFile, 2);
         searchCode(trans3, code, outputFile, 3);    
-        outputFile << "--------------" << endl;
+        if (i++ < mcode.size() - 1)
+        	outputFile << "--------------" << "\n";
     }
+
+    outputFile << "==============" << "\n";
+    outputFile << "Palíndromo más grande:" << "\n";
+    findLongestPalindrome(trans1, outputFile, 1);
+    findLongestPalindrome(trans2, outputFile, 2);
+    findLongestPalindrome(trans3, outputFile, 3);
 
 	outputFile.close();
 

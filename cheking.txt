@@ -77,4 +77,14 @@ transmission2.txt ==> 1 veces
 272
 transmission3.txt ==> 0 veces
 
---------------
+==============
+Palíndromo más grande:
+Transmission1.txt ==> Posición: 75
+A2E2A
+----
+Transmission2.txt ==> Posición: 45
+C8F8C
+----
+Transmission3.txt ==> Posición: 351
+0FFFFFFF0
+----
