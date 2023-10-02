@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// O(n), donde n es el número de caracteres del archivo
 string readFile(const string& fileName) {
 	ifstream file(fileName);
 	string transmission, line;
@@ -22,6 +23,7 @@ string readFile(const string& fileName) {
 	return transmission;
 }
 
+// O(n), donde n es el número de códigos maliciosos
 void readCodes(const string& fileName, vector<string>& mcode) {
 	ifstream file(fileName);
 	string codes, line;
@@ -32,7 +34,7 @@ void readCodes(const string& fileName, vector<string>& mcode) {
 	file.close();
 }
 
-// Complejidad: O(m)
+// Complejidad: O(m) donde m es la longitud del patrón
 vector<int> lps(string str) {
 	int m = str.size();
 	vector<int> lpsv(m, 0);
@@ -51,7 +53,8 @@ vector<int> lps(string str) {
 
 	return lpsv;
 }
-// Complejidad: O(n + m)
+
+// Complejidad: O(n + m) donde n es la longitud del string y m del patrón
 vector<int> kmp(string str, string pattern) {
 	vector<int> lpsv = lps(pattern);
 	vector<int> posMatch;
@@ -76,6 +79,7 @@ vector<int> kmp(string str, string pattern) {
 	return posMatch;
 }
 
+// O(n * m) donde n y m son las longitudes de las dos cadenas
 int subsequence(string s1, string s2) {
     int n = s1.length();
     int m = s2.length();
@@ -116,7 +120,7 @@ int subsequence(string s1, string s2) {
 }
 
 
-// Complejidad: O(n * m)
+// Complejidad: O(n * m) donde n es la longitud del string y m de la subsequence
 int countSubsequence(const string& str, const string& subsequence) {
     int count = 0;
     size_t pos = str.find(subsequence);
@@ -127,41 +131,7 @@ int countSubsequence(const string& str, const string& subsequence) {
     return count;
 }
 
-void searchCode(const string& transmission, const string& code, ofstream& outputFile, int transmissionNumber) {
-    vector<int> positions = kmp(transmission, code);
-    int count = positions.size();
-
-    outputFile << "Código: " << code << "\n";
-    outputFile << "Transmission" << transmissionNumber << ".txt ==> " << count << " veces\n";
-
-    if (count > 0) {
-        outputFile << positions[0];
-        for (int i = 1; i < count; ++i) {
-            outputFile << ", " << positions[i];
-        }
-        outputFile << "\n";
-
-        // Encontrar la subsecuencia más común
-        string mostCommonSubsequence = "";
-        int mostCommonCount = 0;
-        for (int i = 0; i < count; ++i) {
-            string subsequence = transmission.substr(positions[i], code.length());
-            int subsequenceCount = countSubsequence(transmission, subsequence);
-            if (subsequenceCount > mostCommonCount) {
-                mostCommonSubsequence = subsequence;
-                mostCommonCount = subsequenceCount;
-            }
-        }
-
-        if (!mostCommonSubsequence.empty()) {
-            outputFile << "La subsecuencia más encontrada es: " << mostCommonSubsequence
-                       << " con " << mostCommonCount << " veces en el archivo Transmissión" << transmissionNumber << ".txt\n";
-        }
-    }
-
-    outputFile << "--------------\n";
-}
-// Complejidad: O(n^2)
+// Complejidad: O(n), donde n es la longitud del string
 string manacher(const string& str) {
     string T = "$";
     for (char s : str) {
@@ -216,13 +186,14 @@ string manacher(const string& str) {
     return salida;
 }
 
+// O(n), donde n es la longitud de la transmisión
 void findLongestPalindrome(const string& transmision, ofstream& outputFile, int numTrans) {
     string longestPalindrome = manacher(transmision);
     int position = transmision.find(longestPalindrome);
     outputFile << "Transmission" << numTrans << ".txt ==> Posición: " << position << "\n" << longestPalindrome << "\n----\n";
 }
 
-
+// O(n * m), donde n y m son las longitudes de las dos cadenas.
 string findLongestSubstring(const string& s1, const string& s2) {
     int n = s1.length();
     int m = s2.length();
@@ -252,6 +223,8 @@ string findLongestSubstring(const string& s1, const string& s2) {
     return s1.substr(endIndexS1 - maxLength + 1, maxLength);
 }
 
+// O(n * m * t), donde n es la longitud del código, 
+// m es la longitud de la transmisión, y t es el número de transmisiones.
 void searchAndRecordSubsequences(string code, ofstream& outputFile) {
     string mostCommonSubsequence = "";
     int mostCommonCount = 0;
@@ -270,13 +243,9 @@ void searchAndRecordSubsequences(string code, ofstream& outputFile) {
             }
         }
     }
-    cout << mostCommonSubsequence << endl;
-    cout << mostCommonCount << endl;
-    cout << transmission << endl;
-
 
     outputFile << "La subsecuencia más encontrada es: " << mostCommonSubsequence
-                       << " con " << mostCommonCount << " veces en el archivo Transmissión" << transmission << ".txt\n";
+                       << " con " << mostCommonCount << " veces en el archivo Transmisión" << transmission << ".txt\n";
 }
 
 
