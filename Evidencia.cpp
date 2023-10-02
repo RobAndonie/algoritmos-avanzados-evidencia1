@@ -75,6 +75,47 @@ vector<int> kmp(string str, string pattern) {
 	}
 	return posMatch;
 }
+
+int subsequence(string s1, string s2) {
+    int n = s1.length();
+    int m = s2.length();
+    vector<vector<int> > LCS(n, vector<int>(m, 0));
+
+    if (s1[0] == s2[0]) {
+        LCS[0][0] = 1;
+    } else {
+        LCS[0][0] = 0;
+    }
+
+    for (int i = 1; i < n; ++i) {
+        if (s1[i] == s2[0]) {
+            LCS[i][0] = 1;
+        } else {
+            LCS[i][0] = LCS[i - 1][0];
+        }
+    }
+
+    for (int j = 1; j < m; ++j) {
+        if (s1[0] == s2[j]) {
+            LCS[0][j] = 1;
+        } else {
+            LCS[0][j] = LCS[0][j - 1];
+        }
+    }
+
+    for (int i = 1; i < n; ++i) {
+        for (int j = 1; j < m; ++j) {
+            if (s1[i] == s2[j]) {
+                LCS[i][j] = LCS[i - 1][j - 1] + 1;
+            } else {
+                LCS[i][j] = max(LCS[i - 1][j], LCS[i][j - 1]);
+            }
+        }
+    }
+    return LCS[n - 1][m - 1];
+}
+
+
 // Complejidad: O(n * m)
 int countSubsequence(const string& str, const string& subsequence) {
     int count = 0;
@@ -211,6 +252,33 @@ string findLongestSubstring(const string& s1, const string& s2) {
     return s1.substr(endIndexS1 - maxLength + 1, maxLength);
 }
 
+void searchAndRecordSubsequences(string code, ofstream& outputFile) {
+    string mostCommonSubsequence = "";
+    int mostCommonCount = 0;
+    int transmission = 0;
+
+    for(int transmissionNumber = 1; transmissionNumber <= 3; transmissionNumber++) {
+        for(int i = 0; i < code.length(); i++) {
+            string subseq = code.substr(0, i) + code.substr(i + 1);
+            string trans = readFile("transmission" + to_string(transmissionNumber) + ".txt");
+            int count = countSubsequence(trans, subseq);
+            
+            if(count > mostCommonCount) {
+                mostCommonSubsequence = subseq;
+                mostCommonCount = count;
+                transmission = transmissionNumber;
+            }
+        }
+    }
+    cout << mostCommonSubsequence << endl;
+    cout << mostCommonCount << endl;
+    cout << transmission << endl;
+
+
+    outputFile << "La subsecuencia más encontrada es: " << mostCommonSubsequence
+                       << " con " << mostCommonCount << " veces en el archivo Transmissión" << transmission << ".txt\n";
+}
+
 
 int main() {
     string trans1 = readFile("transmission1.txt");
@@ -265,17 +333,8 @@ int main() {
             }
             outputFile << "\n";
         }
-
-        outputFile << "La subsecuencia más encontrada es: ";
-        int maxCount = max(positions1.size(), max(positions2.size(), positions3.size()));
-        if (positions1.size() == maxCount) {
-            outputFile << code << " con " << maxCount << " veces en el archivo Transmission1.txt\n";
-        } else if (positions2.size() == maxCount) {
-            outputFile << code << " con " << maxCount << " veces en el archivo Transmission2.txt\n";
-        } else if (positions3.size() == maxCount) {
-            outputFile << code << " con " << maxCount << " veces en el archivo Transmission3.txt\n";
-        }
-
+        searchAndRecordSubsequences(code, outputFile);
+        
         outputFile << "--------------\n";
     }
 
@@ -299,4 +358,3 @@ int main() {
 
     return 0;
 }
-
